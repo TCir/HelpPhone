@@ -15,27 +15,40 @@ class LoginView: UIView {
     
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView(image: UIImage(named: "logoSmall"))
-        imageView.contentMode = .scaleAspectFit
+        imageView.contentMode = .scaleAspectFill
         imageView.translatesAutoresizingMaskIntoConstraints = false
         return imageView
     }()
     
     
-    lazy var nameLogoLabel: UILabel = {
+    lazy var nameALogoLabel: UILabel = {
         var label = UILabel()
-        label.text = "HelpPhone"
+        label.text = "Help"
         label.textColor = .black
         label.textAlignment = .left
+        label.font = UIFont.boldSystemFont(ofSize: 28)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    lazy var nameBLogoLabel: UILabel = {
+        var label = UILabel()
+        label.text = "Phone"
+        label.textColor = .black
+        label.textAlignment = .left
+        label.font = label.font.withSize(28)
+        label.translatesAutoresizingMaskIntoConstraints = false
+        return label
+    }()
+    
+    
     
     
     lazy var emailLabel: UILabel = {
         var label = UILabel()
         label.text = "Email"
         label.textColor = .black
-        label.textAlignment = .left
+        label.textAlignment = .center
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -58,7 +71,8 @@ class LoginView: UIView {
     private func setupVisualElements() {
 //      setupLabelEmail()
         setupLogoImageView()
-        setupLabelNameLogo()
+        setupLabelNameALogo()
+        setupLabelNameBLogo()
     }
     
     
@@ -69,23 +83,37 @@ class LoginView: UIView {
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
-            logoImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 40),
-            logoImageView.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -200),
-            logoImageView.heightAnchor.constraint(equalToConstant: 80),
+            logoImageView.widthAnchor.constraint(equalToConstant: 80),
+            logoImageView.heightAnchor.constraint(equalToConstant: 80), //altura
+            logoImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 60),// distancia da bora a esqurda
+
+           
             
         ])
     }
     
-    private func setupLabelNameLogo(){
-        self.addSubview(nameLogoLabel)
+    private func setupLabelNameALogo(){
+        self.addSubview(nameALogoLabel)
         
-        let kTop: CGFloat = 80
+        let kTop: CGFloat = 90
         
         NSLayoutConstraint.activate([
-            nameLogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
-//            nameLogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 200),
-            nameLogoLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 20),
-            nameLogoLabel.rightAnchor.constraint(equalTo: self.logoImageView.rightAnchor, constant: -80),
+            nameALogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
+            nameALogoLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 0),
+//            nameALogoLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -160),
+            
+        ])
+    }
+    
+    private func setupLabelNameBLogo(){
+        self.addSubview(nameBLogoLabel)
+        
+        let kTop: CGFloat = 90
+        
+        NSLayoutConstraint.activate([
+            nameBLogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
+            nameBLogoLabel.leftAnchor.constraint(equalTo: nameALogoLabel.leftAnchor, constant: 60),
+//            nameBLogoLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
             
         ])
     }

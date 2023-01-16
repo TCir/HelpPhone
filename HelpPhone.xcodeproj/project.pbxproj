@@ -9,6 +9,9 @@
 /* Begin PBXBuildFile section */
 		446953E62962108E00A1046A /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446953E52962108E00A1046A /* LoginView.swift */; };
 		447492D6293EB14A000AE717 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447492D5293EB14A000AE717 /* LoginViewController.swift */; };
+		447A11E72974C58900CB4350 /* LoginLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447A11E62974C58900CB4350 /* LoginLocalizable.strings */; };
+		447A11EB2974C6AB00CB4350 /* LocalizableStrings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A11EA2974C6AB00CB4350 /* LocalizableStrings.swift */; };
+		447A11ED2974D14000CB4350 /* LocalizableLoginAccessibilityLocalizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 447A11EC2974D14000CB4350 /* LocalizableLoginAccessibilityLocalizable.strings */; };
 		44E45D3429108E2D00B46F95 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E45D3329108E2D00B46F95 /* AppDelegate.swift */; };
 		44E45D3629108E2D00B46F95 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44E45D3529108E2D00B46F95 /* SceneDelegate.swift */; };
 		44E45D3E29108E2D00B46F95 /* HelpPhone.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 44E45D3C29108E2D00B46F95 /* HelpPhone.xcdatamodeld */; };
@@ -41,6 +44,9 @@
 /* Begin PBXFileReference section */
 		446953E52962108E00A1046A /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
 		447492D5293EB14A000AE717 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		447A11E62974C58900CB4350 /* LoginLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = LoginLocalizable.strings; sourceTree = "<group>"; };
+		447A11EA2974C6AB00CB4350 /* LocalizableStrings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocalizableStrings.swift; sourceTree = "<group>"; };
+		447A11EC2974D14000CB4350 /* LocalizableLoginAccessibilityLocalizable.strings */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; path = LocalizableLoginAccessibilityLocalizable.strings; sourceTree = "<group>"; };
 		44E45D3029108E2D00B46F95 /* HelpPhone.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HelpPhone.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		44E45D3329108E2D00B46F95 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		44E45D3529108E2D00B46F95 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -97,6 +103,31 @@
 				446953E52962108E00A1046A /* LoginView.swift */,
 			);
 			path = Login;
+			sourceTree = "<group>";
+		};
+		447A11E52974C56300CB4350 /* Strings */ = {
+			isa = PBXGroup;
+			children = (
+				447A11E62974C58900CB4350 /* LoginLocalizable.strings */,
+				447A11EC2974D14000CB4350 /* LocalizableLoginAccessibilityLocalizable.strings */,
+			);
+			path = Strings;
+			sourceTree = "<group>";
+		};
+		447A11E82974C67C00CB4350 /* Infrastructure */ = {
+			isa = PBXGroup;
+			children = (
+				447A11E92974C68E00CB4350 /* Localizable */,
+			);
+			path = Infrastructure;
+			sourceTree = "<group>";
+		};
+		447A11E92974C68E00CB4350 /* Localizable */ = {
+			isa = PBXGroup;
+			children = (
+				447A11EA2974C6AB00CB4350 /* LocalizableStrings.swift */,
+			);
+			path = Localizable;
 			sourceTree = "<group>";
 		};
 		44E45D2729108E2D00B46F95 = {
@@ -161,6 +192,8 @@
 		44E45D6729108F5500B46F95 /* Sources */ = {
 			isa = PBXGroup;
 			children = (
+				447A11E82974C67C00CB4350 /* Infrastructure */,
+				447A11E52974C56300CB4350 /* Strings */,
 				447492D3293EB11E000AE717 /* Controllers */,
 				44E45D682910960C00B46F95 /* Coordinator */,
 			);
@@ -281,7 +314,9 @@
 			buildActionMask = 2147483647;
 			files = (
 				44E45D4329108E2F00B46F95 /* LaunchScreen.storyboard in Resources */,
+				447A11ED2974D14000CB4350 /* LocalizableLoginAccessibilityLocalizable.strings in Resources */,
 				44E45D4029108E2F00B46F95 /* Assets.xcassets in Resources */,
+				447A11E72974C58900CB4350 /* LoginLocalizable.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -313,6 +348,7 @@
 				44E45D6C291096F800B46F95 /* LoginCoordinator.swift in Sources */,
 				44E45D3429108E2D00B46F95 /* AppDelegate.swift in Sources */,
 				44E45D3629108E2D00B46F95 /* SceneDelegate.swift in Sources */,
+				447A11EB2974C6AB00CB4350 /* LocalizableStrings.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
