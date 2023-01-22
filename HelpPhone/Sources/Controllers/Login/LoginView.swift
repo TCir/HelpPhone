@@ -26,7 +26,7 @@ class LoginView: UIView {
         label.text = "Help"
         label.textColor = .black
         label.textAlignment = .left
-        label.font = UIFont.boldSystemFont(ofSize: 28)
+        label.font = UIFont.boldSystemFont(ofSize: 29)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
@@ -36,22 +36,41 @@ class LoginView: UIView {
         label.text = "Phone"
         label.textColor = .black
         label.textAlignment = .left
-        label.font = label.font.withSize(28)
+        label.font = label.font.withSize(29)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
     
-    
-    
-    
-    lazy var emailLabel: UILabel = {
+    lazy var welcomeMessage:UILabel = {
         var label = UILabel()
-        label.text = "Email"
+        label.text = "Bem vindos à Help Phone! Faça seu login:"
         label.textColor = .black
+        label.numberOfLines = 2
         label.textAlignment = .center
+        label.font = UIFont.boldSystemFont(ofSize:18)
         label.translatesAutoresizingMaskIntoConstraints = false
         return label
     }()
+    
+    
+    lazy var emailTextField:UITextField = {
+        var textField = UITextField()
+        textField.autocorrectionType = .no
+//        textField.backgroundColor = .white
+//        textField.borderStyle = .roundedRect
+        textField.keyboardType = .emailAddress
+        textField.placeholder = "Email"
+        textField.textAlignment = .center
+        textField.textColor = .darkGray
+        textField.layer.borderColor = UIColor.black.cgColor
+        textField.layer.borderWidth = 2
+        textField.layer.cornerRadius = 30
+        textField.translatesAutoresizingMaskIntoConstraints = false
+        
+        return textField
+    }()
+    
+  
     
     // MARK: - Inits
     
@@ -69,26 +88,25 @@ class LoginView: UIView {
     
     
     private func setupVisualElements() {
-//      setupLabelEmail()
+//        setupLabelEmail()
         setupLogoImageView()
         setupLabelNameALogo()
         setupLabelNameBLogo()
+        setupWelcomeMessage()
+        setuptEmailTextField()
     }
     
     
     private func setupLogoImageView() {
         self.addSubview(logoImageView)
         
-                let kTop: CGFloat = 60
+        let kTop: CGFloat = 60
         
         NSLayoutConstraint.activate([
             logoImageView.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
             logoImageView.widthAnchor.constraint(equalToConstant: 80),
             logoImageView.heightAnchor.constraint(equalToConstant: 80), //altura
-            logoImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 60),// distancia da bora a esqurda
-
-           
-            
+            logoImageView.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 60),// distancia da bora a esqurd
         ])
     }
     
@@ -100,8 +118,6 @@ class LoginView: UIView {
         NSLayoutConstraint.activate([
             nameALogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
             nameALogoLabel.leftAnchor.constraint(equalTo: logoImageView.rightAnchor, constant: 0),
-//            nameALogoLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -160),
-            
         ])
     }
     
@@ -113,22 +129,37 @@ class LoginView: UIView {
         NSLayoutConstraint.activate([
             nameBLogoLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: kTop),
             nameBLogoLabel.leftAnchor.constraint(equalTo: nameALogoLabel.leftAnchor, constant: 60),
-//            nameBLogoLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
-            
         ])
     }
     
-    private func setupLabelEmail() {
-        self.addSubview(emailLabel)
+    private func setupWelcomeMessage() {
+        self.addSubview(welcomeMessage)
+        
+        let kTop: CGFloat = 60
         
         NSLayoutConstraint.activate([
-          
-            emailLabel.topAnchor.constraint(equalTo: self.topAnchor, constant: 260),
-            emailLabel.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 12),
-            emailLabel.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -12),
-            
+            welcomeMessage.topAnchor.constraint(equalTo: nameALogoLabel.topAnchor, constant:  kTop),
+            //            welcomeMessage.widthAnchor.constraint(equalToConstant: 90),
+            welcomeMessage.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 60),
+            welcomeMessage.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -60),
         ])
     }
+    
+    
+    private func setuptEmailTextField() {
+        self.addSubview(emailTextField)
+        
+        let kTop: CGFloat = 90
+        
+        NSLayoutConstraint.activate([
+            emailTextField.topAnchor.constraint(equalTo: welcomeMessage.topAnchor, constant: kTop),
+            emailTextField.leftAnchor.constraint(equalTo: self.leftAnchor, constant: 30),
+            emailTextField.rightAnchor.constraint(equalTo: self.rightAnchor, constant: -30),
+            emailTextField.heightAnchor.constraint(equalToConstant: 60),
+        ])
+    }
+    
+    
     
 
     
